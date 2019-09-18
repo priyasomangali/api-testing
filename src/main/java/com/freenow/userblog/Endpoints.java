@@ -1,7 +1,7 @@
 package com.freenow.userblog;
 
 public class Endpoints {
-	private static String baseUrl = "https://jsonplaceholder.typicode.com";
+	private static String baseUri = "https://jsonplaceholder.typicode.com";
 	public static String users = "/users";
 	public static String posts = "/posts";
 	public static String comments = "/comments";
@@ -10,7 +10,7 @@ public class Endpoints {
 
 	public String generateUrl(String api) {
 
-		String url = baseUrl + api;
+		String url = baseUri + api;
 		return url;
 	}
 }

@@ -23,10 +23,10 @@ public class CommonUtils {
 		extent.setSystemInfo("OS", "Mac Sierra");
 		extent.setSystemInfo("Host Name", "local");
 		extent.setSystemInfo("Environment", "mac");
-		extent.setSystemInfo("User Name", "user");
+		extent.setSystemInfo("User Name", "Priya");
 
 		htmlReporter.config().setChartVisibilityOnOpen(true);
-		htmlReporter.config().setDocumentTitle("AutomationTesting.in Demo Report");
+		htmlReporter.config().setDocumentTitle("API Testing Report");
 		htmlReporter.config().setReportName(reportName);
 		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
 		htmlReporter.config().setTheme(Theme.DARK);
