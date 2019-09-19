@@ -16,7 +16,7 @@ import com.aventstack.extentreports.Status;
 
 import com.freenow.helpers.CommonUtils;
 import com.freenow.testdata.UserBlogData;
-import com.freenow.userblog.Helpers;
+import com.freenow.userblog.BlogHelpers;
 import io.restassured.response.Response;
 
 public class ApiTest {
@@ -24,7 +24,7 @@ public class ApiTest {
 	public class UserBlogTest extends CommonUtils {
 		ExtentReports extent;
 		ExtentTest test;
-		Helpers helper = new Helpers();
+		BlogHelpers helper = new BlogHelpers();
 
 		@BeforeClass
 		public void startReports() {

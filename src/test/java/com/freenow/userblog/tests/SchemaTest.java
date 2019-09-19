@@ -11,14 +11,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import com.freenow.helpers.CommonUtils;
-import com.freenow.userblog.Endpoints;
+import com.freenow.userblog.BlogEndpoints;
 import io.restassured.RestAssured;
 
 public class SchemaTest extends CommonUtils {
 
 	ExtentReports extent;
 	ExtentTest test;
-	Endpoints endpoint = new Endpoints();
+	BlogEndpoints endpoint = new BlogEndpoints();
 
 	@BeforeClass
 	public void startReports() {
@@ -31,7 +31,7 @@ public class SchemaTest extends CommonUtils {
 	@Test
 	public void testJsonUsersSchema() {
 
-		RestAssured.given().when().get(endpoint.generateUrl(Endpoints.users)).then().assertThat()
+		RestAssured.given().when().get(endpoint.generateUrl(BlogEndpoints.users)).then().assertThat()
 				.body(matchesJsonSchemaInClasspath("usersSchema.json/"));
 		test.log(Status.PASS, "Users schema validation successful");
 
@@ -40,7 +40,7 @@ public class SchemaTest extends CommonUtils {
 	@Test
 	public void testJsonPostsSchema() {
 
-		RestAssured.given().when().get(endpoint.generateUrl(Endpoints.postsWithUserId)).then().assertThat()
+		RestAssured.given().when().get(endpoint.generateUrl(BlogEndpoints.postsWithUserId)).then().assertThat()
 				.body(matchesJsonSchemaInClasspath("postsSchema.json/"));
 		test.log(Status.PASS, "Posts schema validation successful");
 
@@ -49,7 +49,7 @@ public class SchemaTest extends CommonUtils {
 	@Test
 	public void testJsonCommentsSchema() {
 
-		RestAssured.given().when().get(endpoint.generateUrl(Endpoints.commentsWithPostId)).then().assertThat()
+		RestAssured.given().when().get(endpoint.generateUrl(BlogEndpoints.commentsWithPostId)).then().assertThat()
 				.body(matchesJsonSchemaInClasspath("commentsSchema.json/"));
 		test.log(Status.PASS, "Comments schema validation successful");
 

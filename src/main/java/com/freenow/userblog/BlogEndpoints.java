@@ -1,6 +1,6 @@
 package com.freenow.userblog;
 
-public class Endpoints {
+public class BlogEndpoints {
 	private static String baseUri = "https://jsonplaceholder.typicode.com";
 	public static String users = "/users";
 	public static String posts = "/posts";

@@ -8,24 +8,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.freenow.helpers.ApiHelper;
-import com.freenow.userblog.Endpoints;
+import com.freenow.userblog.BlogEndpoints;
 import io.restassured.response.Response;
 
-public class Helpers extends ApiHelper {
+public class BlogHelpers extends ApiHelper {
 
-	Endpoints endpoint = new Endpoints();
+	BlogEndpoints endpoint = new BlogEndpoints();
 
 	public Response getUserByUsername(String username) {
 		Map<String, Object> queryParam = new HashMap<String, Object>();
 		queryParam.put("username", username);
-		Response response = getRequest(endpoint.generateUrl(Endpoints.users), queryParam);
+		Response response = getRequest(endpoint.generateUrl(BlogEndpoints.users), queryParam);
 		return response;
 
 	}
 
 	public Response getUserByUsername() {
 
-		Response response = getRequest(endpoint.generateUrl(Endpoints.users));
+		Response response = getRequest(endpoint.generateUrl(BlogEndpoints.users));
 		return response;
 
 	}
@@ -33,7 +33,7 @@ public class Helpers extends ApiHelper {
 	public Response getPostsByUser(int userId) {
 		Map<String, Object> queryParam = new HashMap<String, Object>();
 		queryParam.put("userId", userId);
-		Response response = getRequest(endpoint.generateUrl(Endpoints.postsWithUserId), queryParam);
+		Response response = getRequest(endpoint.generateUrl(BlogEndpoints.postsWithUserId), queryParam);
 		return response;
 	}
 
@@ -44,7 +44,7 @@ public class Helpers extends ApiHelper {
 
 		for (Integer id : postId) {
 			queryParam.put("postId", id);
-			response = getRequest(endpoint.generateUrl(Endpoints.commentsWithPostId), queryParam);
+			response = getRequest(endpoint.generateUrl(BlogEndpoints.commentsWithPostId), queryParam);
 			List<Map<String, Integer>> comment_id = response.jsonPath().getList("$");
 
 			for (Map<String, Integer> comments : comment_id) {

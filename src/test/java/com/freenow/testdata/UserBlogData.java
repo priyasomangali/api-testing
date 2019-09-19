@@ -7,6 +7,6 @@ public class UserBlogData {
 	@DataProvider(name = "SearchUser")
 	public static Object[][] getDataFromDataprovider() {
 
-		return new Object[][] { { "Samantha" } };
+		return new Object[][] { { "Samantha" }};
 	}
 }
