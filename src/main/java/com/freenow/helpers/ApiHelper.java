@@ -30,19 +30,24 @@ public class ApiHelper {
 				.response();
 	}
 
-	public Response postRequest(String endpoint, String requestBody) {
-		return given().contentType(ContentType.JSON).body(requestBody).post(endpoint).then().assertThat()
-				.spec(checkStatusCodeAndContentType(201)).and().contentType(ContentType.JSON).extract().response();
-	}
-
-	public Response patchRequest(String endpoint, String requestBody) {
-		return given().contentType(ContentType.JSON).body(requestBody).patch(endpoint).then().assertThat()
-				.spec(checkStatusCodeAndContentType(200)).and().contentType(ContentType.JSON).extract().response();
-	}
-
-	public Response deleteRequest(String endpoint) {
-		return given().contentType(ContentType.JSON).delete(endpoint).then().assertThat()
-				.spec(checkStatusCodeAndContentType(204)).and().contentType(ContentType.JSON).extract().response();
-	}
+	// Below http methods are not used in the project currently. Hence commented.
+	/*
+	 * public Response postRequest(String endpoint, String requestBody) { return
+	 * given().contentType(ContentType.JSON).body(requestBody).post(endpoint).then()
+	 * .assertThat()
+	 * .spec(checkStatusCodeAndContentType(201)).and().contentType(ContentType.JSON)
+	 * .extract().response(); }
+	 * 
+	 * public Response patchRequest(String endpoint, String requestBody) { return
+	 * given().contentType(ContentType.JSON).body(requestBody).patch(endpoint).then(
+	 * ).assertThat()
+	 * .spec(checkStatusCodeAndContentType(200)).and().contentType(ContentType.JSON)
+	 * .extract().response(); }
+	 * 
+	 * public Response deleteRequest(String endpoint) { return
+	 * given().contentType(ContentType.JSON).delete(endpoint).then().assertThat()
+	 * .spec(checkStatusCodeAndContentType(204)).and().contentType(ContentType.JSON)
+	 * .extract().response(); }
+	 */
 
 }

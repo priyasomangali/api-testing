@@ -10,7 +10,7 @@ public class BlogEndpoints {
 
 	public String generateUrl(String api) {
 
-		String url = baseUri + api;
-		return url;
+		return baseUri + api;
+
 	}
 }
