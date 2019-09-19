@@ -64,4 +64,7 @@ To automate the following workflows :
 ## CircleCI 
 https://circleci.com/gh/priyasomangali/api-testing
 
-## Screenshot of reports
+## Screenshots
+![alt text](https://github.com/priyasomangali/api-testing/blob/master/CircleCI.png "CircleCI")
+
+![alt text](https://github.com/priyasomangali/api-testing/blob/master/ExtentReport.png "Extent Report")
