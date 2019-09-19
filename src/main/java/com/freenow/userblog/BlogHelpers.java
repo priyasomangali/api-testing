@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.validator.routines.EmailValidator;
 
 import com.freenow.helpers.ApiHelper;
 import com.freenow.userblog.BlogEndpoints;
@@ -64,6 +65,7 @@ public class BlogHelpers extends ApiHelper {
 	public boolean validateEmail(String email) {
 
 		boolean isEmailValid = false;
+// 		Entire address can be no more than 254 char long
 		if (email == null || email.length() > 254 || email.length() < 5)
 			return false;
 		Pattern p = Pattern.compile("\\A([A-Za-z0-9\\.!#\\$%&'\\*\\+\\-/=" + "\\?\\^_`\\{\\|\\}~]{1,64})@"
@@ -72,13 +74,22 @@ public class BlogHelpers extends ApiHelper {
 		boolean format1 = m.find();
 		if (format1 == true)
 			isEmailValid = true;
-		Pattern q = Pattern.compile(
+
+//		To check the placement of dot
+		Pattern placement = Pattern.compile(
 				"@((\\.)|-|" + "([A-Za-z0-9-]{1,}-\\.[A-Za-z0-9-]{1,}))" + "|(\\.\\z)|(\\A\\.)|(\\.\\.)|(\\.-)|(-\\z)");
-		Matcher n = q.matcher(email);
+		Matcher n = placement.matcher(email);
 		boolean format2 = n.find();
 		if (format2 == true)
 			isEmailValid = false;
 
+//		apache validator has been used to include more checks for email validation
+		if (format1 == true && format2 == true) {
+			boolean validator = EmailValidator.getInstance().isValid(email);
+			if (validator)
+				isEmailValid = true;
+		}
 		return isEmailValid;
 	}
+
 }

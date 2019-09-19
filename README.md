@@ -5,6 +5,17 @@ To automate the following workflows :
 - Fetch the posts added by the given user.
 - Validate the email format in each comment in the comments section.
 
+## What I have done
+- Added test for finding the given user(Samantha) using query param  
+- Added test for finding the given user(Samantha) by parsing the response
+- Added test for validating the case where the given username does not exist.(Test disabled)
+- Added test for finding the posts added by the given user (Samantha)
+- Added test for validating email format for comments in comments section
+- Added test for validating the case where no posts are added by the given user.(Test disabled)
+- Added test for validating the case where there are no comments made on the posts by the given user.(Test disabled)
+
+***Note: Tests are disabled for the cases where API response currently does not match the expected cases but has been added to have more coverage***
+
 ## Project Breakdown 
 ### Tests
 - src/test/java//SchemaTest.java <br/>
