@@ -61,5 +61,7 @@ To automate the following workflows :
 - json-schema-validator
 - extentreports
 
+## CircleCI 
+https://circleci.com/gh/priyasomangali/api-testing
 
 ## Screenshot of reports
